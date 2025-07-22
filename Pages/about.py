@@ -1,5 +1,6 @@
 import streamlit as st  #type: ignore
 from PIL import Image
+import os
 
 st.title("About Us")
 

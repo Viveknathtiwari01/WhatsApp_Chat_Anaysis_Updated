@@ -2,6 +2,7 @@ import streamlit as st # type: ignore
 import preprocessor, helper
 import matplotlib.pyplot as plt # type: ignore
 from matplotlib import font_manager as fm
+import os
 st.title("📈 Chat Analysis") 
 
 # Check if chat data is available
@@ -103,7 +104,10 @@ if "chat_data" in st.session_state:
         with col1:
             # Set emoji font
             emoji_font_path = 'C:/Windows/Fonts/seguiemj.ttf'  # Segoe UI Emoji font path in Windows
-            emoji_font = fm.FontProperties(fname=emoji_font_path)
+            if os.path.exists(emoji_font_path):
+                emoji_font = fm.FontProperties(fname=emoji_font_path)
+            else:
+                emoji_font = fm.FontProperties()  # Use default font
 
             st.title("😄 Emoji's Pie Chart")
 
